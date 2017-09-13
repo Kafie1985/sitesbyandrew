@@ -1,3 +1,11 @@
+.logo{
+  vertical-align: top;
+  text-align: center;
+  padding-top: 35px;
+  margin-left: 6%;
+  width: auto;
+}
+
 h1
 {
   font-family: fantasy;
@@ -7,11 +15,12 @@ h1
   }
   h2
   {
-    color: yellow;
+    color: Yellow;
   }
 
   p
   {
+    padding: 10px;
     font-family: sans-serif;
     color: Green;
     width: auto;
@@ -28,3 +37,33 @@ h1
     font-size: 30px;
 
   }
+.nav
+{
+  float: left;
+  vertical-align: top;
+  width: 150px;
+  padding: 10px;
+  margin: 5px;
+/*  background-color: ;*/
+}
+.one{
+  padding: 10px;
+  text-align: center;
+/*  background-color: ;*/
+  width: 70%;
+  margin-left: 18%;
+}
+.two{
+  padding: 60px;
+  text-align: center;
+/*  background-color: ;*/
+}
+
+footer {
+
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
