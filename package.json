@@ -1,39 +1,27 @@
 {
-  "title": "Stylish Portfolio",
-  "name": "startbootstrap-stylish-portfolio",
-  "version": "4.0.0-beta",
-  "description": "A stylish portfolio HTML template built with Bootstrap",
-  "keywords": [
-    "css",
-    "sass",
-    "html",
-    "responsive",
-    "theme",
-    "template"
-  ],
-  "homepage": "https://startbootstrap.com/template-overviews/stylish-portfolio",
-  "bugs": {
-    "url": "https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio/issues",
-    "email": "feedback@startbootstrap.com"
+  "name": "sitesbyandrew",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
   },
-  "license": "MIT",
-  "author": "Start Bootstrap",
-  "contributors": [
-    "David Miller (http://davidmiller.io/)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio.git"
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-beta",
-    "font-awesome": "4.7.0",
-    "jquery": "^3.2.1",
-    "jquery.easing": "^1.4.1",
-    "popper.js": "^1.11.1"
+    "@astrojs/markdown-satteri": "^0.3.5",
+    "@astrojs/vercel": "^11.0.5",
+    "@lucide/astro": "^1.17.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^7.0.6",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "browser-sync": "2.18.13",
-    "gulp": "^3.9.1"
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
   }
 }
