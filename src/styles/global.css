@@ -1,3 +1,23 @@
 @import "tailwindcss";
-@theme { --color-paper: oklch(0.97 0.018 92); --color-paper-deep: oklch(0.93 0.028 92); --color-ink: oklch(0.22 0.045 250); --color-ink-soft: oklch(0.42 0.045 250); --color-blue: oklch(0.53 0.16 252); --color-blue-deep: oklch(0.36 0.13 252); --color-citrus: oklch(0.83 0.17 92); --color-clay: oklch(0.68 0.12 32); --color-line: oklch(0.22 0.045 250 / 0.16); --font-display: "Bricolage Grotesque", sans-serif; --font-body: "Nunito Sans", sans-serif; }
-@theme { --color-brand-navy:#103058; --color-brand-teal:#0898A0; --color-brand-mist:#F4F8FB; --font-brand-display:"Fraunces",serif; --font-brand-body:"Source Sans 3",sans-serif; }
+
+@theme {
+	--color-paper: oklch(0.97 0.018 92);
+	--color-paper-deep: oklch(0.93 0.028 92);
+	--color-ink: oklch(0.22 0.045 250);
+	--color-ink-soft: oklch(0.42 0.045 250);
+	--color-blue: oklch(0.53 0.16 252);
+	--color-blue-deep: oklch(0.36 0.13 252);
+	--color-citrus: oklch(0.83 0.17 92);
+	--color-clay: oklch(0.68 0.12 32);
+	--color-line: oklch(0.22 0.045 250 / 0.16);
+	--font-display: "Bricolage Grotesque", sans-serif;
+	--font-body: "Nunito Sans", sans-serif;
+}
+
+@theme {
+	--color-brand-navy: #103058;
+	--color-brand-teal: #0898A0;
+	--color-brand-mist: #F4F8FB;
+	--font-brand-display: "Fraunces", serif;
+	--font-brand-body: "Source Sans 3", sans-serif;
+}
