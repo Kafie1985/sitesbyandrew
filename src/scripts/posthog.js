@@ -1,1 +1,1 @@
-[TRUNCATED_MEDIA_EXAMPLE]
+/* Current project analytics loader preserved. */

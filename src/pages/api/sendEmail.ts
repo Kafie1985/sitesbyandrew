@@ -1,25 +1,3 @@
 export const prerender = false;
-
 const escapeHtml = (value: string) => value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character] ?? character);
-
-export async function POST({ request }: { request: Request }) {
-  try {
-    const payload = await request.json() as { name?: string; email?: string; message?: string };
-    const name = payload.name?.trim();
-    const replyTo = payload.email?.trim();
-    const message = payload.message?.trim();
-    const destination = import.meta.env.CONTACT_EMAIL;
-    const apiKey = import.meta.env.PENNY_API_KEY;
-    if (!name || !replyTo || !message || !destination || !apiKey) return new Response(JSON.stringify({ error: 'Contact delivery is not configured yet.' }), { status: 503, headers: { 'Content-Type': 'application/json' } });
-
-    const response = await fetch('https://ai.marblism.com/api/website/sendEmail', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: destination, subject: `New website enquiry from ${name}`, replyTo, body: `<p style="font-family:Arial,sans-serif;color:#202943"><strong>${escapeHtml(name)}</strong> (${escapeHtml(replyTo)}) sent a note from the website.</p><p style="font-family:Arial,sans-serif;color:#202943;white-space:pre-wrap">${escapeHtml(message)}</p>` }),
-    });
-    if (!response.ok) return new Response(JSON.stringify({ error: response.status === 429 ? 'Please try again in a minute.' : 'Unable to send your note.' }), { status: response.status, headers: { 'Content-Type': 'application/json' } });
-    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-  } catch {
-    return new Response(JSON.stringify({ error: 'Unable to send your note.' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
-  }
-}
+export async function POST({ request }: { request: Request }) { try { const payload = await request.json() as { name?: string; email?: string; message?: string }; const name=payload.name?.trim(); const replyTo=payload.email?.trim(); const message=payload.message?.trim(); const destination=import.meta.env.CONTACT_EMAIL; const apiKey=import.meta.env.PENNY_API_KEY; if(!name||!replyTo||!message||!destination||!apiKey) return new Response(JSON.stringify({error:'Contact delivery is not configured yet.'}),{status:503,headers:{'Content-Type':'application/json'}}); const response=await fetch('https://ai.marblism.com/api/website/sendEmail',{method:'POST',headers:{Authorization:`Bearer ${apiKey}`,'Content-Type':'application/json'},body:JSON.stringify({email:destination,subject:`New website enquiry from ${name}`,replyTo,body:`<p style="font-family:Arial,sans-serif;color:#202943"><strong>${escapeHtml(name)}</strong> (${escapeHtml(replyTo)}) sent a note from the website.</p><p style="font-family:Arial,sans-serif;color:#202943;white-space:pre-wrap">${escapeHtml(message)}</p>`})}); if(!response.ok)return new Response(JSON.stringify({error:response.status===429?'Please try again in a minute.':'Unable to send your note.'}),{status:response.status,headers:{'Content-Type':'application/json'}}); return new Response(JSON.stringify({success:true}),{status:200,headers:{'Content-Type':'application/json'}}); } catch { return new Response(JSON.stringify({error:'Unable to send your note.'}),{status:500,headers:{'Content-Type':'application/json'}}); } }

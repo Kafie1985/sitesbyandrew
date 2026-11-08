@@ -1,7 +1,5 @@
 ---
-import background from '../assets/not-found-hero.jpg';
+import background from '../assets/not-found-hero';
 const image = background;
 ---
-<div class="bg-cover bg-center" style={`background-image:url(${image.src})`}>
-  <slot />
-</div>
+<div class="bg-cover bg-center" style={`background-image:url(${image.src})`}><slot /></div>
