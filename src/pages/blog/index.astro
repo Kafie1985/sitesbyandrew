@@ -1,1 +1,27 @@
-[use supplied actual page code]
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articles = [
+	{
+		slug: 'cleaning-inspection-checklist-template',
+		title: 'Cleaning Inspection Checklist Template',
+		excerpt: 'A practical inspection checklist helps cleaning teams check each job against the customer’s agreed scope, record issues clearly, and follow through on fixes.',
+	},
+	{
+		slug: 'how-to-quote-a-commercial-cleaning-job',
+		title: 'How to Quote a Commercial Cleaning Job',
+		excerpt: 'A clear commercial cleaning quote starts with a site walkthrough, a written scope, realistic labor estimates, and a price you can explain.',
+	},
+	{
+		slug: 'how-to-get-more-cleaning-clients',
+		title: 'How to Get More Cleaning Clients',
+		excerpt: 'Nine practical ways for small cleaning businesses to get found locally, earn trust, and make it easier for potential clients to request a quote.',
+	},
+];
+---
+<Layout title="Blog | Sites By Andrew" description="Practical guides and ideas for local cleaning businesses, from Sites By Andrew.">
+	<div class="bg-brand-mist"><section class="mx-auto w-full max-w-[78rem] px-5 pb-20 pt-8 font-brand-body text-brand-navy sm:px-8 sm:pt-14 lg:px-10 lg:pb-28">
+		<header class="max-w-[49rem] border-b border-brand-navy/15 pb-10"><p class="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-brand-teal">The blog</p><h1 class="font-brand-display text-[clamp(2.75rem,7vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em]">Guides and ideas for cleaning companies.</h1><p class="mt-8 max-w-[38rem] text-lg leading-8 text-brand-navy/75 sm:text-xl">Short, practical articles to help your cleaning business win more work and run smoother.</p></header>
+		<div class="grid gap-6 pt-10 sm:grid-cols-2 lg:gap-8 lg:pt-14">{articles.map((post) => <a class="group flex h-full flex-col rounded-3xl border border-brand-navy/10 bg-white p-6 transition-transform hover:-translate-y-1 sm:p-8" href={`/blog/${post.slug}`}><h2 class="font-brand-display text-2xl font-semibold leading-snug tracking-[-0.01em] sm:text-3xl group-hover:text-brand-teal">{post.title}</h2><p class="mt-4 flex-1 leading-7 text-brand-navy/70">{post.excerpt}</p><span class="mt-6 text-sm font-bold text-brand-teal">Read article <span aria-hidden="true">→</span></span></a>)}</div>
+	</section></div>
+</Layout>

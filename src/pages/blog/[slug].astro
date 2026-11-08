@@ -1,1 +1,52 @@
-[use supplied actual page code]
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = {
+	'cleaning-inspection-checklist-template': {
+		title: 'Cleaning Inspection Checklist Template',
+		meta: 'A practical cleaning inspection checklist for local cleaning companies.',
+		sections: [
+			{ heading: 'What to include in a cleaning inspection checklist', body: 'Start with the site, date, inspector, and the scope of work being reviewed. Break checks down by area, such as entrances, offices, restrooms, and breakrooms. Describe visible standards so the team knows what “done” looks like.' },
+			{ heading: 'Room-by-room checklist items', body: 'For offices, check agreed surfaces, waste bins, floors, and visible edges. For restrooms, check fixtures, mirrors, floors, and the agreed supply levels. For breakrooms, check counters, sinks, tables, floors, and any appliances included in the scope. Mark tasks outside the agreement as not applicable rather than a miss.' },
+			{ heading: 'How to score an inspection', body: 'Use Pass for work that meets the stated standard, Needs work for a specific item that requires correction, and N/A when the task does not apply. Record the location, what you observed, who will correct it, and when it was verified. Keep notes factual and consistent.' },
+			{ heading: 'Printable template or inspection app?', body: 'A printable checklist is a simple starting point. A digital process can make it easier to keep walkthrough notes and photos with each job and share a consistent report. See the <a href="/services">services page</a> for practical ways we help cleaning businesses organize their online presence.' },
+			{ heading: 'Build your checklist around the agreement', body: 'The most useful inspection checklist reflects what the customer actually purchased. Review the scope with your team, keep standards observable, and use each inspection to spot recurring issues and improve the process.' },
+		],
+	},
+	'how-to-quote-a-commercial-cleaning-job': {
+		title: 'How to Quote a Commercial Cleaning Job',
+		meta: 'A clear process for scoping, estimating, and pricing a commercial cleaning quote.',
+		sections: [
+			{ heading: 'Walk the building before you quote', body: 'Ask about access, schedule, supplies, service frequency, and the customer’s priorities. Walk each area with someone who knows the site. Note floor types, restroom fixtures, breakrooms, access rules, and spaces that are not part of the cleaning scope.' },
+			{ heading: 'Write down the scope of work', body: 'List each task by area and frequency. Separate regular visits from periodic services such as carpet extraction or floor care. Make assumptions and exclusions clear so the customer can see exactly what the price covers.' },
+			{ heading: 'Estimate labor and operating costs', body: 'Estimate time for each task using your own experience and production records. Include setup, equipment movement, travel, supplies, labor burden, overhead, and profit in your calculation. Compare estimates with actual job time as you build experience.' },
+			{ heading: 'Choose a pricing method', body: 'Recurring work may be priced per visit or as a flat monthly amount. Hourly pricing can suit uncertain work, while square-foot pricing can help compare similar spaces with the same scope. Use your own costs and local requirements; no one rate fits every building.' },
+			{ heading: 'Prepare a clear proposal', body: 'Include the scope, schedule, price, start date, payment terms, who supplies products, and a way to approve the quote. If a customer has a lower budget, offer a smaller scope or different frequency and update the proposal.' },
+		],
+	},
+	'how-to-get-more-cleaning-clients': {
+		title: 'How to Get More Cleaning Clients',
+		meta: 'Nine practical ways for small cleaning businesses to attract local customers and turn inquiries into work.',
+		sections: [
+			{ heading: '1. Be specific about who you serve', body: 'Choose the services and locations you can support consistently. Make it easy for a potential customer to understand what you clean, where you work, and how to ask for a quote.' },
+			{ heading: '2. Complete your Google Business Profile', body: 'Keep your hours, contact details, services, service area, and photos accurate. Ask for honest reviews without offering incentives, and respond professionally to feedback.' },
+			{ heading: '3. Make your website useful', body: 'Explain your services, service area, and next steps in plain language. Make your contact details and quote request easy to find on a phone. A clear website is a practical part of a cleaning company’s marketing.' },
+			{ heading: '4. Ask customers for honest reviews', body: 'After a completed job, invite customers to share honest feedback and provide a direct review link. Do not ask only for positive reviews or offer rewards in exchange.' },
+			{ heading: '5. Make quote requests easy', body: 'Use a short form that asks only for the details you need to respond. Tell customers what happens next and check inquiries regularly.' },
+			{ heading: '6. Post consistently on one social platform', body: 'Share useful cleaning tips, real service updates, answers to customer questions, and photos only when you have permission. Focus on a schedule you can maintain.' },
+			{ heading: '7. Build a referral routine', body: 'Let satisfied customers know you welcome referrals. Give them a short note and link they can pass along, then track whether referrals become booked work.' },
+			{ heading: '8. Connect with local businesses', body: 'Property managers, real estate agents, organizers, and other local businesses may meet people who need cleaning. Introduce your services and look for a useful, professional referral relationship.' },
+			{ heading: '9. Follow up and deliver consistently', body: 'Respond to inquiries, send clear quotes, and follow up after service. Track where inquiries come from and whether they become jobs so you can focus on what works for your business.' },
+		],
+	},
+};
+
+const post = posts[Astro.params.slug as keyof typeof posts];
+if (!post) Astro.response.status = 404;
+const description = post?.meta ?? 'Practical guidance for local cleaning businesses from Sites By Andrew.';
+---
+<Layout title={`${post?.title ?? 'Article not found'} | Sites By Andrew`} description={description}>
+	<div class="bg-brand-mist"><article class="mx-auto w-full max-w-[78rem] px-5 pb-20 pt-8 font-brand-body text-brand-navy sm:px-8 sm:pt-14 lg:px-10 lg:pb-28">
+		{post ? <><header class="mx-auto max-w-[48rem] border-b border-brand-navy/15 pb-10"><a class="text-sm font-bold text-brand-teal hover:text-brand-navy" href="/blog">← Back to the blog</a><h1 class="mt-8 font-brand-display text-[clamp(2.25rem,6vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.02em]">{post.title}</h1><p class="mt-6 text-sm text-brand-navy/60">By Sites By Andrew</p></header><div class="mx-auto max-w-[44rem] pt-8 text-lg leading-8 text-brand-navy/85">{post.sections.map((section) => <section class="py-2"><h2 class="mt-8 font-brand-display text-2xl font-semibold leading-snug">{section.heading}</h2><p class="mt-4" set:html={section.body} /></section>)}</div></> : <section class="mx-auto max-w-[48rem] py-20"><p class="text-xs font-bold uppercase tracking-[0.18em] text-brand-teal">Article not found</p><h1 class="mt-5 font-brand-display text-4xl font-semibold sm:text-5xl">This page isn't here.</h1><a class="mt-8 inline-block font-bold text-brand-teal underline underline-offset-4" href="/blog">Back to all articles</a></section>}
+	</article></div>
+</Layout>
