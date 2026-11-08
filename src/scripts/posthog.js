@@ -1,1 +1,1 @@
-[current PostHog tracking script contents]
+[use supplied actual page code]
